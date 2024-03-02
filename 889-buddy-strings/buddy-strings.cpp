@@ -4,9 +4,10 @@ public:
         if(s.size() != goal.size()) return false;
 
         if(s == goal){
-            unordered_set<char> set;
+            vector<int> count(26,0);
             for(char c : s){
-                if(!set.insert(c).second) return true;
+                count[c - 'a']++;
+                if(count[c-'a'] > 1) return true;
             }
             return false;
         }
