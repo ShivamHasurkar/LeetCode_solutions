@@ -11,21 +11,21 @@
  */
 class Solution {
 public:
-    void dfs(TreeNode* node, string curr, vector<string>& paths){
+    void dfs(TreeNode* node, string curr, string& smallest){
         if(node){
             curr = (char) ('a' + node->val) + curr;
 
-            if(!node->left && !node->right) paths.push_back(curr);
+            if(!node->left && !node->right) {
+                if(smallest.empty() || curr < smallest) smallest = curr;
+            }
 
-            if(node->left) dfs(node->left, curr, paths);
-            if(node->right) dfs(node->right, curr, paths);
+            if(node->left) dfs(node->left, curr, smallest);
+            if(node->right) dfs(node->right, curr, smallest);
         }
     }
     string smallestFromLeaf(TreeNode* root) {
-        vector<string> paths;
-        string curr = "";
-        dfs(root, curr, paths);
-        sort(paths.begin(), paths.end());
-        return paths.empty() ? "" : paths[0];
+        string smallest = "";
+        dfs(root, "", smallest);
+        return smallest;
     }
 };
