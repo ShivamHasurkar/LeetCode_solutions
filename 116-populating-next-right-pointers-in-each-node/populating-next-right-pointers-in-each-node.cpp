@@ -21,27 +21,17 @@ public:
     Node* connect(Node* root) {
         if(!root) return nullptr;
 
-        queue<Node*> q;
-        q.push(root);
-
-        while(!q.empty()){
-            int size = q.size();
-            vector<Node*> level;
-
-            for(int i=0;i<size;i++){
-                Node* curr = q.front();
-                q.pop();
-
-                if(curr->left) q.push(curr->left);
-                if(curr->right) q.push(curr->right);
-                level.push_back(curr);
+        Node* current = root;
+        while(current->left){
+            Node* levelStart = current;
+            while(current){
+                current->left->next = current->right;
+                if(current->next){
+                    current->right->next = current->next->left;
+                }
+                current = current->next;
             }
-
-            for(int i=0;i<level.size();i++){
-                Node* node = level[i];
-                if(i == level.size()-1) node->next == nullptr;
-                else node->next = level[i+1];
-            }
+            current = levelStart->left;
         }
         return root;
     }
