@@ -12,8 +12,8 @@
 class Solution {
 public:
     bool isSameTree(TreeNode* root, TreeNode* subRoot){
-        if(!root && !subRoot) return true;
-        if(!root || !subRoot) return false;
+        if(!root || !subRoot) return root == subRoot;
+        // if(!root || !subRoot) return false;
         return (root->val == subRoot->val) && isSameTree(root->left, subRoot->left) && isSameTree(root->right, subRoot->right);
     }
     bool isSubtree(TreeNode* root, TreeNode* subRoot) {
