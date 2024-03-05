@@ -6,10 +6,10 @@ public:
         while(i<j){
             if(s[i] == s[j]){
                 char c = s[i];
-                while(s[i] == c && i<s.size()){
+                while(s[i] == c && i<=j){
                     i++;
                 }
-                while(s[j] == c && j>0){
+                while(s[j] == c && i<=j){
                     j--;
                 }
             }
