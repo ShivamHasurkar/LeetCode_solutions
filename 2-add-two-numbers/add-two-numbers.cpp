@@ -27,9 +27,8 @@ public:
                 l2 = l2->next;
             }
             carry = sum/10;
-            ListNode* temp = new ListNode(sum%10);
-            curr->next = temp;
-            curr = temp;
+            curr->next = new ListNode(sum%10);
+            curr = curr->next;
         }
         return dummy.next;
     }
