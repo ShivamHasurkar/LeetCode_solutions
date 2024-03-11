@@ -3,6 +3,9 @@ public:
     int searchInsert(vector<int>& nums, int target) {
         int left = 0, right = nums.size()-1;
 
+        if(target < nums[left]) return 0;
+        if(target > nums[right]) return right+1;
+
         while(left<=right){
             int mid = left + (right-left) /2;
 
