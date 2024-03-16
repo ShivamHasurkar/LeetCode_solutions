@@ -4,7 +4,7 @@ public:
         vector<string> ans;
         stringstream ss(s);
         string token;
-        while(ss>>token) { ans.push_back(token);}
+        while(ss>>token) {ans.push_back(token);}
         reverse(ans.begin(), ans.end());
         token = "";
         for(auto a : ans){
