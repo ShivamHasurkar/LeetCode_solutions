@@ -4,19 +4,21 @@ public:
         int totalSum = accumulate(nums.begin(), nums.end(), 0);
         int target = totalSum - x;
         if(target < 0) return -1;
+        if(target == 0) return nums.size();
 
-        int maxLength = -1;
-        int sum = 0;
         int left = 0;
-        for(int right =0;right<nums.size();right++){
+        int sum = 0;
+        int maxLen = 0;
+        for(int right = 0;right<nums.size();right++){
             sum += nums[right];
-            while(sum > target && left<=right){
-                sum -= nums[left++];
+            while(sum>target){
+                sum -= nums[left];
+                left++;
             }
             if(sum == target){
-                maxLength = max(maxLength, right - left + 1);
+                maxLen = max(maxLen, right-left+1);
             }
         }
-        return (maxLength == -1) ? -1 : nums.size() - maxLength;
+        return maxLen == 0 ? -1 : nums.size() - maxLen;
     }
 };
