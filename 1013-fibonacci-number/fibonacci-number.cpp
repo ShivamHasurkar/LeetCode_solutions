@@ -1,15 +1,14 @@
 class Solution {
 public:
-    int dp(int n, vector<int>& memo){
-        if(n<=1) return n;
-        if(memo[n] != -1) return memo[n];
-
-        memo[n] = dp(n-1, memo) + dp(n-2, memo);
-        return memo[n];
-    }
-    //top-down approach
+    // bottom-up appraoch
     int fib(int n) {
-        vector<int> memo(n+1, -1);
-        return dp(n, memo);    
+        if(n<=1) return n;
+        vector<int> dp(n+1);
+        dp[0] = 0;
+        dp[1] = 1;
+        for(int i=2;i<=n;i++){
+            dp[i] = dp[i-1] + dp[i-2];
+        }
+        return dp[n];
     }
 };
