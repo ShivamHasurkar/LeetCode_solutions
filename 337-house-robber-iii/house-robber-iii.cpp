@@ -11,13 +11,13 @@
  */
 class Solution {
 public:
-    pair<int, int> robHelper(TreeNode* root){
-        if(!root) return {};
+    pair<int, int> robHelper(TreeNode* node){
+        if(!node) return {};
 
-        auto left = robHelper(root->left);
-        auto right = robHelper(root->right);
+        auto left = robHelper(node->left);
+        auto right = robHelper(node->right);
 
-        int rob = root->val + left.second + right.second;
+        int rob = node->val + left.second + right.second;
         int notRob = max(left.first, left.second) + max(right.first, right.second);
 
         return {rob, notRob};
