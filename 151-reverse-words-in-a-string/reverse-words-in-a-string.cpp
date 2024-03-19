@@ -1,14 +1,15 @@
 class Solution {
 public:
     string reverseWords(string s) {
-        vector<string> ans;
+        vector<string> result;
         stringstream ss(s);
         string token;
-        while(ss>>token) {ans.push_back(token);}
-        reverse(ans.begin(), ans.end());
+        while(ss>>token){result.push_back(token);}
+
+        reverse(result.begin(), result.end());
         token = "";
-        for(auto a : ans){
-            token += a;
+        for(string str : result){
+            token += str;
             token += " ";
         }
         token.pop_back();
