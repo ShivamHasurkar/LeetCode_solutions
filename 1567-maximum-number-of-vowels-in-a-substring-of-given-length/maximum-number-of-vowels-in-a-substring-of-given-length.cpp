@@ -1,8 +1,7 @@
 class Solution {
 public:
     bool isVowel(char c){
-        string vowel = "aeiou";
-        return (vowel.find(c) != string::npos);
+        return c=='a' || c=='e' || c=='i' || c=='o' || c=='u';
     }
     int maxVowels(string s, int k) {
         int count = 0;
