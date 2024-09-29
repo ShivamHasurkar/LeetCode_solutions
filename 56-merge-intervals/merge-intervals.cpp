@@ -9,8 +9,7 @@ public:
                 if(ans.back()[1] < intervals[i][1]){
                     ans.back()[1] = intervals[i][1];
                 }
-            }
-            else{
+            }else{
                 ans.push_back(intervals[i]);
             }
         }
