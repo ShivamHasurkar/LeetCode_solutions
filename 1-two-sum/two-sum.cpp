@@ -7,9 +7,9 @@ public:
         }
 
         for(int i=0;i<nums.size();i++){
-            int comp = target - nums[i];
-            if(map.count(comp) && map[comp] != i){
-                return {i, map[comp]};
+            auto it = map.find(target - nums[i]);
+            if(it!= map.end() && it->second!=i){
+                return {it->second, i};
             }
         }
         return {};
