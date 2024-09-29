@@ -1,9 +1,9 @@
 class Solution {
 public:
     string addStrings(string num1, string num2) {
-        int i = num1.size()-1, j = num2.size()-1, carry = 0;
+        int i=num1.size()-1, j = num2.size()-1;
+        int carry = 0;
         string result = "";
-
         while(i>=0 || j>=0 || carry > 0){
             int sum = carry;
             if(i>=0){
@@ -14,10 +14,9 @@ public:
                 sum += num2[j] - '0';
                 j--;
             }
-            carry = sum /10;
-            result = char(sum % 10 + '0') + result;
+            carry = sum/10;
+            result = char(sum%10 + '0') + result;
         }
-
         return result;
     }
 };
