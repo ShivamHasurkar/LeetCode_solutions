@@ -1,7 +1,7 @@
 class Solution {
 public:
     int romanToInt(string s) {
-        int n = s.size();
+        int res = 0;
         unordered_map<char, int> m;
 
         m['I'] = 1;
@@ -12,9 +12,7 @@ public:
         m['D'] = 500;
         m['M'] = 1000;
 
-        int res = 0;
-
-        for(int i=0;i<n;i++){
+        for(int i=0;i<s.size();i++){
             if(m[s[i]] < m[s[i+1]]) res -= m[s[i]];
             else res += m[s[i]];
         }
