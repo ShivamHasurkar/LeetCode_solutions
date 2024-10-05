@@ -1,7 +1,7 @@
 class Solution {
 public:
     void backtrack(int n, int i, int j, string curr, vector<string>& ans){
-        if(i==j && j==n){
+        if(i==j && i==n){
             ans.push_back(curr);
             return;
         }
