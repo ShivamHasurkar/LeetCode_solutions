@@ -1,9 +1,9 @@
 class LRUCache {
     int capacity;
-    list<pair<int,int>> cache;
+    list<pair<int, int>> cache;
     unordered_map<int, list<pair<int,int>>::iterator> map;
 public:
-    LRUCache(int capacity) : capacity(capacity) {}
+    LRUCache(int capacity) : capacity(capacity){}
     
     int get(int key) {
         if(map.find(key) != map.end()){
@@ -24,7 +24,7 @@ public:
                 map.erase(cache.back().first);
                 cache.pop_back();
             }
-            
+
             cache.emplace_front(key, value);
             map[key] = cache.begin();
         }
