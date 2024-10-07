@@ -6,7 +6,7 @@ public:
         
         for(int i=0;i<nums.size();i++){
             int x = nums[i];
-            if(s.contains(x-1)) continue;
+            if(s.count(x-1)) continue;
             while(s.count(x)){
                 x++;
             }
